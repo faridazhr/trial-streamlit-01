@@ -6,28 +6,24 @@ import pandas as pd
 template_segment = [
     {"R": (3, 5), "FM": (4, 5), "Label": "1. Loyal Customers",       "Color": "#4285F4FF"},
     {"R": (4, 5), "FM": (3, 3), "Label": "2. Potential Loyalists",  "Color": "#00ACC1FF"},
-    {"R": (4, 5), "FM": (1, 2), "Label": "3. Recent Customers",    "Color": "#34A853FF"},
-    {"R": (3, 3), "FM": (3, 3), "Label": "4. Need Attention",      "Color": "#FBBC05FF"},
-    {"R": (1, 2), "FM": (5, 5), "Label": "5. Can't lose them",     "Color": "#EA222AFF"},
-    {"R": (1, 2), "FM": (3, 4), "Label": "6. At Risk",             "Color": "#FB8C05FF"},
-    {"R": (1, 3), "FM": (1, 2), "Label": "7. Lost Customers",      "Color": "#9E9E9EFF"},
+    {"R": (4, 5), "FM": (1, 2), "Label": "3. Recent Customers",     "Color": "#34A853FF"},
+    {"R": (3, 3), "FM": (3, 3), "Label": "4. Need Attention",       "Color": "#FBBC05FF"},
+    {"R": (1, 2), "FM": (5, 5), "Label": "5. Can't lose them",      "Color": "#EA222AFF"},
+    {"R": (1, 2), "FM": (3, 4), "Label": "6. At Risk",              "Color": "#FB8C05FF"},
+    {"R": (1, 3), "FM": (1, 2), "Label": "7. Lost Customers",       "Color": "#9E9E9EFF"},
 ]
 
 df_segment = pd.DataFrame(template_segment)
 
-count_segment = 1
-percentage_segment = 1
-
-df_segment["Count"] = count_segment
-df_segment["Percent"] = percentage_segment
-
 segments = []
 for row in df_segment.itertuples(index=False, name=None):
-    # print(row)  # Each row is a tuple
-    _temp_dict = {"R": row[0], "FM": row[1], "Label": row[2], "Color": row[3], "Count": row[4], "Percent": row[5]}
-    segments.append(_temp_dict)
+    segments.append({
+        "R": row[0],
+        "FM": row[1],
+        "Label": row[2],
+        "Color": row[3]
+    })
 
-    
 st.set_page_config(layout="wide")
 st.title("RFM Nasional - Segmentation Treemap")
 st.caption("Apr 2022 - Mar 2024")
