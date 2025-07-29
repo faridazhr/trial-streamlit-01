@@ -15,6 +15,12 @@ template_segment = [
 
 df_segment = pd.DataFrame(template_segment)
 
+count_segment = 1
+percentage_segment = 1
+
+df_segment["Count"] = count_segment
+df_segment["Percent"] = percentage_segment
+
 segments = []
 for row in df_segment.itertuples(index=False, name=None):
     # print(row)  # Each row is a tuple
